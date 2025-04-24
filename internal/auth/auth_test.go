@@ -44,7 +44,7 @@ func TestGetAPIKey(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			gotKey, err := GetAPIKey(tt.header)
-			if tt.wantErr == nil {
+			if tt.wantErr != nil {
 				if err == nil || err.Error() != tt.wantErr.Error() {
 					t.Fatalf("expected error '%v', got '%v'", tt.wantErr, err)
 				}
